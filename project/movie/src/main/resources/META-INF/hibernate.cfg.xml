@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+
+        <!-- Database Connection Settings -->
+
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+
+        <property name="connection.url">jdbc:mysql://localhost:3306/schooldb</property>
+
+        <property name="connection.username">root</property>
+
+        <property name="connection.password">1234</property>
+
+        <!-- Connection Pool Size (built-in) -->
+
+        <property name="connection.pool.size">1</property>
+
+        <!-- SQL Dialect -->
+
+        <property name="dialect">org.hibernate.dialect.MySQL57Dialect</property>
+
+
+        <!-- Disable the second-level cache -->
+
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+        <!-- Echo all executed SQL to stdout -->
+
+        <property name="hibernate.show_sql">true</property>
+
+        <!-- Drop the existing tables and create new one -->
+
+        <property name="hbm2ddl.auto">create</property>
+
+        <property name="hibernate.enable_lazy_load_no_trans">true</property>
+        <!-- TODO:AI GRIJA CU PROPRIETATEA DACA FOLOSESTI SPRING-->
+
+
+        <!-- TO NOT LET HIBERNATE TO DROP TABLE WHEN RUN APPLICATION-->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!--problema afisare read movie cand nu exista-->
+        <!--<property name="current_session_context_class">thread</property>-->
+        <!--<property name="hibernate.enable_lazy_load_no_trans">true</property>-->
+
+        <!-- Mention here all the client.model classes along with their package name -->
+        <mapping class="client.model.entity.Actor"/>
+        <mapping class="client.model.entity.Director"/>
+        <mapping class="client.model.entity.Movie"/>
+        <mapping class="client.model.entity.User"/>
+        <mapping class="client.model.entity.Review"/>
+        <mapping class="client.model.entity.Watched"/>
+    </session-factory>
+
+</hibernate-configuration>

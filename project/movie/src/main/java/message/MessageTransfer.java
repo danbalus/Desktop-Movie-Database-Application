@@ -1,0 +1,19 @@
+package message;
+
+public enum MessageTransfer {
+    ADD_MOVIE,
+    DELETE_MOVIE,
+    UPDATE_MOVIE,
+    READ_MOVIE,
+    ADD_USER,
+    DELETE_USER,
+    UPDATE_USER,
+    READ_USER,
+    GENERATE_TXT_RAPORT,
+    GENERATE_PDF_RAPORT,
+    SEARCH_BY_ACTOR,
+    SEARCH_BY_GENRE,
+    SEARCH_BY_DIRECTOR,
+    SEARCH_BY_RATING,
+    USER_RATE_MOVIE
+}

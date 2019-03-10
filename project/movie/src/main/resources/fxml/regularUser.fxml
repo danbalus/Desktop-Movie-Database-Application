@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="860.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.gui.RegularUserController">
+    <center>
+        <TabPane prefHeight="510.0" prefWidth="726.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+            <tabs>
+                <Tab onSelectionChanged="#actorRadioButtonSelected" text="Search">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <HBox layoutX="1.0" layoutY="-1.0" prefHeight="831.0" prefWidth="1136.0">
+                                    <children>
+                                        <VBox prefHeight="831.0" prefWidth="169.0" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <HBox prefHeight="280.0" prefWidth="231.0">
+                                                    <children>
+                                                        <VBox prefHeight="290.0" prefWidth="231.0">
+                                                            <children>
+                                                                <Label prefHeight="17.0" prefWidth="298.0" text="Search Movie By:">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="17.0" />
+                                                                    </font>
+                                                                </Label>
+                                                <VBox prefHeight="200.0" prefWidth="100.0">
+                                                   <children>
+                                                      <RadioButton mnemonicParsing="false" onAction="#actorRadioButtonSelected" selected="true" text="Actor">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets bottom="9.0" top="9.0" />
+                                                         </VBox.margin>
+                                                         <toggleGroup>
+                                                            <ToggleGroup fx:id="Criteria" />
+                                                         </toggleGroup>
+                                                      </RadioButton>
+                                                      <RadioButton mnemonicParsing="false" onAction="#directorRadioButtonSelected" text="Director" toggleGroup="$Criteria">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets bottom="9.0" top="9.0" />
+                                                         </VBox.margin>
+                                                      </RadioButton>
+                                                      <RadioButton mnemonicParsing="false" onAction="#genreRadioButtonSelected" text="Genre" toggleGroup="$Criteria">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets bottom="9.0" top="9.0" />
+                                                         </VBox.margin>
+                                                      </RadioButton>
+                                                      <RadioButton mnemonicParsing="false" onAction="#rateRadioButtonSelected" text="Rate" toggleGroup="$Criteria">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets bottom="9.0" top="9.0" />
+                                                         </VBox.margin>
+                                                      </RadioButton>
+                                                      <TextField fx:id="searchMovieByTextField" prefHeight="55.0" prefWidth="231.0" promptText="What to find" />
+                                                   </children>
+                                                </VBox>
+                                                                <Button mnemonicParsing="false" onAction="#searchMovieByButtonClicked" prefHeight="25.0" prefWidth="233.0" text="Search">
+                                                   <VBox.margin>
+                                                      <Insets top="15.0" />
+                                                   </VBox.margin></Button>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                            <opaqueInsets>
+                                                <Insets bottom="10.0" />
+                                            </opaqueInsets></VBox>
+                                        <VBox prefHeight="831.0" prefWidth="843.0" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <TableView fx:id="movieTableView" VBox.vgrow="ALWAYS">
+                                                    <columns>
+                                                        <TableColumn fx:id="movieNameTableColumn" editable="false" prefWidth="128.0" text="NAME" />
+                                                        <TableColumn fx:id="movieGenreTableColumn" editable="false" prefWidth="95.0" text="GENRE" />
+                                                        <TableColumn fx:id="movieInfoTableColumn" editable="false" prefWidth="231.0" text="INFORMATION" />
+                                                        <TableColumn fx:id="movieRateTableColumn" editable="false" prefWidth="43.0" text="RATE" />
+                                                        <TableColumn fx:id="movieActorsTableColumn" editable="false" prefWidth="298.0" text="ACTORS" />
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Rate">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <HBox layoutX="1.0" layoutY="-1.0" prefHeight="831.0" prefWidth="1136.0">
+                                    <children>
+                                        <VBox prefHeight="831.0" prefWidth="169.0" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <HBox prefHeight="131.0" prefWidth="297.0">
+                                                    <children>
+                                                        <VBox prefHeight="168.0" prefWidth="298.0">
+                                                            <children>
+                                                                <Label prefHeight="17.0" prefWidth="298.0" text="Rate Movie">
+                                                                    <font>
+                                                                        <Font name="System Italic" size="15.0" />
+                                                                    </font>
+                                                                </Label>
+                                                                <TextField fx:id="rateNameMovieTextField" prefHeight="27.0" prefWidth="231.0" promptText="name">
+                                                                    <padding>
+                                                                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                                    </padding>
+                                                                </TextField>
+                                                                <TextField fx:id="rateRateMovieTextField" promptText="rate" />
+                                                                <Button mnemonicParsing="false" onAction="#rateMovieButtonClicked" prefHeight="25.0" prefWidth="233.0" text="Rate" />
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                            <opaqueInsets>
+                                                <Insets bottom="10.0" />
+                                            </opaqueInsets>
+                                        </VBox>
+                                        <VBox prefHeight="831.0" prefWidth="843.0" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <TableView fx:id="rateTableView" VBox.vgrow="ALWAYS">
+                                                    <columns>
+                                                        <TableColumn fx:id="rateNameTableColumn" editable="false" prefWidth="403.0" text="NAME MOVIE" />
+                                                        <TableColumn fx:id="rateRateeTableColumn" editable="false" prefWidth="419.0" text="RATE" />
+                                                    </columns>
+                                                </TableView>
+                                                <Button mnemonicParsing="false" onAction="#seeAllRatingsButtonClicked" text="Show all" />
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            <Tab text="Favourite">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox layoutX="1.0" layoutY="-1.0" prefHeight="831.0" prefWidth="1136.0">
+                           <children>
+                              <VBox prefHeight="831.0" prefWidth="169.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <HBox prefHeight="131.0" prefWidth="297.0">
+                                       <children>
+                                          <VBox prefHeight="168.0" prefWidth="298.0">
+                                             <children>
+                                                <Label prefHeight="17.0" prefWidth="298.0" text="Add Favourite Movie">
+                                                   <font>
+                                                      <Font name="System Italic" size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="addNameFavouriteMovieTextField" prefHeight="27.0" prefWidth="231.0" promptText="name">
+                                                   <padding>
+                                                      <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                   </padding>
+                                                </TextField>
+                                                <Button mnemonicParsing="false" onAction="#addFavouriteMovieButtonClicked" prefHeight="25.0" prefWidth="233.0" text="Add Movie" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <VBox prefHeight="168.0" prefWidth="298.0">
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="298.0" text="Remove Favourite Movie">
+                                             <font>
+                                                <Font name="System Italic" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="removeNameFavouriteMovieTextField" prefHeight="27.0" prefWidth="231.0" promptText="name">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </TextField>
+                                          <Button mnemonicParsing="false" onAction="#removeFavouriteMovieButtonClicked" prefHeight="25.0" prefWidth="233.0" text="Remove Movie" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets bottom="10.0" />
+                                 </opaqueInsets>
+                              </VBox>
+                              <VBox prefHeight="831.0" prefWidth="843.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <TableView fx:id="favouriteTableView" VBox.vgrow="ALWAYS">
+                                       <columns>
+                                          <TableColumn fx:id="favouriteNameTableColumn" editable="false" prefWidth="868.0" text="NAME MOVIE" />
+                                       </columns>
+                                    </TableView>
+                                    <Button mnemonicParsing="false" onAction="#seeAllFavouriteMoviesButtonClicked" text="Show all" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Review">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox layoutX="1.0" layoutY="-1.0" prefHeight="831.0" prefWidth="1136.0">
+                           <children>
+                              <VBox prefHeight="831.0" prefWidth="169.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <HBox prefHeight="131.0" prefWidth="297.0">
+                                       <children>
+                                          <VBox prefHeight="168.0" prefWidth="298.0">
+                                             <children>
+                                                <Label prefHeight="17.0" prefWidth="298.0" text="Add a Review to Movie">
+                                                   <font>
+                                                      <Font name="System Italic" size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="addNameReviewMovieTextField1" prefHeight="27.0" prefWidth="231.0" promptText="movie name">
+                                                   <padding>
+                                                      <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                   </padding>
+                                                </TextField>
+                                                <TextField fx:id="reviewMovieTextField1" prefHeight="27.0" prefWidth="231.0" promptText="review">
+                                                   <padding>
+                                                      <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                   </padding>
+                                                </TextField>
+                                                <Button mnemonicParsing="false" onAction="#addReviewMovieButtonClicked" prefHeight="25.0" prefWidth="233.0" text="Add Review" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <TextField fx:id="idLikeReviewMovieTextField" promptText="id review" />
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <ImageView fitHeight="78.0" fitWidth="172.0" onMousePressed="#likeClick" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@like.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="77.0" fitWidth="143.0" onMousePressed="#dislikeClick" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@dislike.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets bottom="10.0" />
+                                 </opaqueInsets>
+                              </VBox>
+                              <VBox prefHeight="831.0" prefWidth="843.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <TableView fx:id="reviewTableView" VBox.vgrow="ALWAYS">
+                                       <columns>
+                                          <TableColumn fx:id="reviewIdTableColumn" prefWidth="75.0" text="ID REVIEW" />
+                                          <TableColumn fx:id="reviewUserNameTableColumn" prefWidth="162.0" text="USER NICKNAME" />
+                                          <TableColumn fx:id="reviewNameTableColumn" editable="false" prefWidth="190.0" text="NAME MOVIE" />
+                                          <TableColumn fx:id="reviewUpTableColumn" prefWidth="37.0" text="UP" />
+                                          <TableColumn fx:id="reviewDownTableColumn" prefWidth="54.0" text="DOWN" />
+                                          <TableColumn fx:id="reviewReviewTableColumn" prefWidth="683.0" text="REVIEW" />
+                                       </columns>
+                                    </TableView>
+                                    <Button mnemonicParsing="false" onAction="#seeAllReviesMoviesButtonClicked" text="Show all reviews" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Suggestions">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox layoutX="1.0" layoutY="-1.0" prefHeight="831.0" prefWidth="1136.0">
+                           <children>
+                              <VBox prefHeight="831.0" prefWidth="843.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <TableView fx:id="suggeestionsTableView1" prefHeight="810.0" prefWidth="1136.0">
+                                       <columns>
+                                          <TableColumn fx:id="suggestionsMovieNameTableColumn1" editable="false" prefWidth="163.0" text="NAME" />
+                                          <TableColumn fx:id="suggestionsMovieGenreTableColumn1" editable="false" prefWidth="159.0" text="GENRE" />
+                                          <TableColumn fx:id="suggestionsMovieInfoTableColumn1" editable="false" prefWidth="457.0" text="INFORMATION" />
+                                          <TableColumn fx:id="suggestionsMovieRateTableColumn1" editable="false" prefWidth="111.0" text="RATE" />
+                                          <TableColumn fx:id="suggestionsMovieActorsTableColumn1" editable="false" prefWidth="243.0" text="ACTORS" />
+                                       </columns>
+                                    </TableView>
+                                    <Button mnemonicParsing="false" onAction="#seeAllSuggestedMoviesButtonClicked" text="Find the perfect movies for me, please">
+                                       <VBox.margin>
+                                          <Insets left="450.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Whatched">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox layoutX="1.0" layoutY="-1.0" prefHeight="831.0" prefWidth="1136.0">
+                           <children>
+                              <VBox prefHeight="831.0" prefWidth="169.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <HBox prefHeight="131.0" prefWidth="297.0">
+                                       <children>
+                                          <VBox prefHeight="168.0" prefWidth="298.0">
+                                             <children>
+                                                <Label prefHeight="17.0" prefWidth="298.0" text="Add Whatched Movie">
+                                                   <font>
+                                                      <Font name="System Italic" size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="addNameWhatchedMovieTextField11" prefHeight="27.0" prefWidth="231.0" promptText="name">
+                                                   <padding>
+                                                      <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                   </padding>
+                                                </TextField>
+                                                <Button mnemonicParsing="false" onAction="#addWhatchedMovieButtonClicked" prefHeight="25.0" prefWidth="233.0" text="Add Movie" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <VBox prefHeight="168.0" prefWidth="298.0">
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="298.0" text="Remove Whatched Movie">
+                                             <font>
+                                                <Font name="System Italic" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="removeNameWhatchedMovieTextField11" prefHeight="27.0" prefWidth="231.0" promptText="name">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </TextField>
+                                          <Button mnemonicParsing="false" onAction="#removeWhatchedMovieButtonClicked" prefHeight="25.0" prefWidth="233.0" text="Remove Movie" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets bottom="10.0" />
+                                 </opaqueInsets>
+                              </VBox>
+                              <VBox prefHeight="831.0" prefWidth="843.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <TableView fx:id="whatchedTableView1" VBox.vgrow="ALWAYS">
+                                       <columns>
+                                          <TableColumn fx:id="whatchedNameTableColumn11" editable="false" prefWidth="868.0" text="NAME MOVIE" />
+                                       </columns>
+                                    </TableView>
+                                    <Button mnemonicParsing="false" onAction="#seeAllWhatchedMoviesButtonClicked" text="Show all whatched movie" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            </tabs>
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+        </TabPane>
+    </center>
+</BorderPane>
